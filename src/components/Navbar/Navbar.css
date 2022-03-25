@@ -1,0 +1,89 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  z-index: 100;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+}
+.brand-name {
+  margin: auto 0;
+  padding-left: 4px;
+}
+.nav-actions {
+  display: flex;
+  align-items: center;
+}
+
+.btn.btn-primary.btn-action {
+  font-size: 1rem;
+  padding: 0.2rem 0.7rem;
+}
+.btn.btn-secondary.btn-action.login {
+  display: none;
+}
+
+.btn.main-menu {
+  background: none;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.mobile-nav {
+  text-align: center;
+  display: none;
+  border-top: 1px solid gainsboro;
+  z-index: 100;
+  background: #fff;
+  position: fixed;
+  height: calc(100vh - 50px);
+  width: 100%;
+}
+.is-opened {
+  display: block;
+}
+.btn.btn-nav {
+  background: none;
+  box-shadow: none;
+  font-size: 1.2rem;
+}
+
+/* media queries */
+
+@media screen and (min-width: 600px) {
+  html {
+    font-size: 1.2rem;
+  }
+  .btn.btn-primary.btn-action {
+    font-size: inherit;
+    padding: 0.4rem 0.8rem;
+  }
+}
+@media screen and (min-width: 1100px) {
+  html {
+    font-size: 1.5rem;
+  }
+
+  .btn.main-menu {
+    display: none;
+  }
+  .btn.btn-primary.btn-action {
+    font-size: inherit;
+  }
+  .btn.btn-secondary.btn-action.login {
+    display: block;
+    font-size: inherit;
+    padding: 0.4rem 0.8rem;
+  }
+  .nav-actions {
+    gap: 1rem;
+    padding-right: 10px;
+  }
+  .brand-name {
+    padding-left: 10px;
+  }
+}
