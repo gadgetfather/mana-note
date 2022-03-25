@@ -1,0 +1,50 @@
+.main-content_landing {
+  display: grid;
+  align-content: center;
+  height: calc(100vh - 200px);
+  justify-items: center;
+  grid-template-areas:
+    "hero"
+    "details"
+    "action-items";
+}
+.main-content_landing .details {
+  grid-area: details;
+}
+.hero-img {
+  grid-area: hero;
+  width: 60%;
+  margin-top: 1rem;
+}
+.details {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.main-content_landing .action-btn {
+  grid-area: action-items;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.main-content_landing .btn-primary {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 1100px) {
+  .main-content_landing {
+    grid-template-areas:
+      "details hero"
+      "details hero"
+      "action-items hero";
+  }
+
+  .details {
+    width: 25rem;
+  }
+  .brand-name {
+    font-size: 2rem;
+  }
+}
