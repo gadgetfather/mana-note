@@ -1,0 +1,35 @@
+.main-content_signup {
+  display: grid;
+  height: calc(100vh - 200px);
+  align-content: center;
+  justify-content: center;
+  position: relative;
+}
+.main-content_signup .page-title {
+  position: absolute;
+  justify-self: center;
+  margin-top: 0.5rem;
+}
+.input-label {
+  align-self: flex-start;
+  margin-left: 2rem;
+}
+.input {
+  padding: 0.6rem 0.8rem;
+  border: none;
+  border-bottom: 1px solid var(--primary-color);
+  outline: none;
+}
+.input:focus {
+  border-bottom: 2px solid var(--primary-color);
+}
+.main-content_login .btn-primary {
+  margin-top: 0.5rem;
+}
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 15rem;
+  align-items: center;
+  gap: 0.5rem;
+}
