@@ -17,7 +17,9 @@ export function Navbar() {
           <Link to={"/signup"} className="btn btn-primary btn-action">
             Signup
           </Link>
-          <button className="btn btn-secondary btn-action login">Login</button>
+          <Link to={"/login"} className="btn btn-secondary btn-action login">
+            Login
+          </Link>
           <button onClick={handleMenu} className="btn main-menu">
             {isOpen ? (
               <span className="material-icons-outlined">close</span>
