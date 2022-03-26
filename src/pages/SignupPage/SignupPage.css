@@ -14,7 +14,7 @@
   align-self: flex-start;
 }
 .input {
-  padding: 0.6rem 0.8rem;
+  padding: 0.3rem 0.8rem;
   border: none;
   border-bottom: 1px solid var(--primary-color);
   outline: none;
