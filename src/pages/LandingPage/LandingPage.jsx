@@ -2,6 +2,7 @@ import React from "react";
 import { Navbar } from "../../components";
 import heroImg from "../../assets/images/hero-img.svg";
 import "./LandingPage.css";
+import { Link } from "react-router-dom";
 export function LandingPage() {
   return (
     <>
@@ -15,8 +16,12 @@ export function LandingPage() {
           </p>
         </div>
         <div className="action-btn">
-          <button className="btn btn-primary">JOIN NOW</button>
-          <p>Already Have an account?</p>
+          <Link to={"/signup"} className="btn btn-primary">
+            JOIN NOW
+          </Link>
+          <Link className="link btn-login" to={"/login"}>
+            Already Have an account?
+          </Link>
         </div>
       </main>
     </>
