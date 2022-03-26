@@ -10,7 +10,6 @@ export function Navbar() {
   return (
     <>
       <nav className="navbar">
-        <h1 className="brand-name">ManaNote</h1>
         <Link className="link brand-name" to={"/"}>
           <h1>ManaNote</h1>
         </Link>
