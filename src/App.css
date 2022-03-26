@@ -2,7 +2,9 @@
   height: 100vh;
   position: relative;
 }
-
+.link {
+  text-decoration: none;
+}
 @media screen and (min-width: 1100px) {
   .main-container {
     width: 80%;
