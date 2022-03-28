@@ -1,0 +1,30 @@
+.note-text {
+  background: transparent;
+  border: none;
+  resize: none;
+}
+.note-text.note-title {
+  height: 3rem;
+  font-size: 1.5rem;
+  font-family: inherit;
+  overflow: hidden;
+  padding: 0 0.2rem;
+}
+.note-text.text-area {
+  margin-top: 0;
+  font-size: 1.2rem;
+  font-family: inherit;
+  padding: 0 0.2rem;
+}
+.note-text:focus {
+  outline: none;
+}
+
+/* media query  */
+@media screen and (min-width: 1000px) {
+  .add-note {
+    width: 25rem;
+    margin: 0 auto;
+    margin-top: 1rem;
+  }
+}
