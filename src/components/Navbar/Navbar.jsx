@@ -30,7 +30,11 @@ export function Navbar() {
         </div>
       </nav>
       <div className={isOpen ? "mobile-nav is-opened" : "mobile-nav"}>
-        <Link to={"/login"} className="btn btn-nav">
+        <Link
+          onClick={() => setIsOpen(false)}
+          to={"/login"}
+          className="btn btn-nav"
+        >
           Login
         </Link>
       </div>
