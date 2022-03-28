@@ -31,6 +31,16 @@
 }
 .main-content_landing .btn-primary {
   cursor: pointer;
+  text-align: center;
+}
+.main-content_landing .link.btn-login {
+  color: black;
+  cursor: pointer;
+}
+.main-content_landing .link.btn-login:hover {
+  color: rgb(22, 22, 22);
+  text-decoration: underline;
+  transition: 0.2s;
 }
 
 @media screen and (min-width: 1100px) {
@@ -43,8 +53,5 @@
 
   .details {
     width: 25rem;
-  }
-  .brand-name {
-    font-size: 2rem;
   }
 }

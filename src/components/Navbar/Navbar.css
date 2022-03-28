@@ -11,6 +11,7 @@
 .brand-name {
   margin: auto 0;
   padding-left: 4px;
+  color: var(--primary-color);
 }
 .nav-actions {
   display: flex;
