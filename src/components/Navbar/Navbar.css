@@ -3,10 +3,12 @@
   justify-content: space-between;
   align-items: center;
   padding-top: 10px;
+  padding-bottom: 10px;
   z-index: 100;
   position: sticky;
   top: 0;
   background-color: #fff;
+  border-bottom: 1px solid gainsboro;
 }
 .brand-name {
   margin: auto 0;
