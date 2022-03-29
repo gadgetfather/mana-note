@@ -48,6 +48,14 @@ export function LoginPage() {
 
   return (
     <>
+      {authInfo.login_text ? (
+        <div className="toast sucess success-toast">
+          <p>{authInfo.login_text}</p>
+          <small>Welcome Back...</small>
+        </div>
+      ) : (
+        ""
+      )}
       <main className="main-content_login">
         <h1 className="page-title">Login</h1>
         <form className="form-container">
