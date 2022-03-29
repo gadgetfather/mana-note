@@ -1,4 +1,5 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useState, useEffect } from "react";
+import { useAuth } from "../../context/auth-context";
 import "./LoginPage.css";
 
 export const validate = (values) => {
@@ -27,16 +28,24 @@ const formValueReducer = (state, action) => {
 };
 
 export function LoginPage() {
+  const { login, authInfo } = useAuth();
   const [formValues, formValueDispatch] = useReducer(
     formValueReducer,
     initialObj
   );
+  const [isSubmit, setIsSubmit] = useState(false);
+  useEffect(() => {
+    if (Object.keys(formValues.errors).length === 0 && isSubmit) {
+      login(formValues.email, formValues.password);
+    }
+  }, [formValues.errors]);
   const { errors } = formValues;
   const handleSubmit = (e, values) => {
     e.preventDefault();
     formValueDispatch({ type: "VALIDATE", payload: validate(values) });
+    setIsSubmit(true);
   };
-  console.log(formValues);
+
   return (
     <>
       <main className="main-content_login">
@@ -82,6 +91,7 @@ export function LoginPage() {
           ) : (
             ""
           )}
+          {authInfo.login_error ? <p>incorrect email or password</p> : ""}
           <button
             onClick={(e) => handleSubmit(e, formValues)}
             type="submit"
