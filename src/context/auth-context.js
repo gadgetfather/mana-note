@@ -49,7 +49,7 @@ const AuthProvider = ({ children }) => {
           payload: "Logged in successfully ",
         });
         setTimeout(() => {
-          authDispatch({ type: "SET_TEXT", payload: "" });
+          authDispatch({ type: "SET_LOGIN_TEXT", payload: "" });
           navigate("/notes");
         }, 2000);
       }
@@ -81,7 +81,7 @@ const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ authInfo, login, signup }}>
+    <AuthContext.Provider value={{ authInfo, login, signup, authDispatch }}>
       {children}
     </AuthContext.Provider>
   );

@@ -24,11 +24,17 @@ const formValueReducer = (state, action) => {
       return { ...state, [action.name]: action.payload };
     case "VALIDATE":
       return { ...state, errors: action.payload };
+    case "TEST":
+      return {
+        email: "adarshbalika@gmail.com",
+        password: "adarshBalika123",
+        errors: {},
+      };
   }
 };
 
 export function LoginPage() {
-  const { login, authInfo } = useAuth();
+  const { login, authInfo, authDispatch } = useAuth();
   const [formValues, formValueDispatch] = useReducer(
     formValueReducer,
     initialObj
@@ -45,7 +51,7 @@ export function LoginPage() {
     formValueDispatch({ type: "VALIDATE", payload: validate(values) });
     setIsSubmit(true);
   };
-
+  console.log(formValues);
   return (
     <>
       {authInfo.login_text ? (
@@ -100,6 +106,16 @@ export function LoginPage() {
             ""
           )}
           {authInfo.login_error ? <p>incorrect email or password</p> : ""}
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              formValues.email = "adarshbalika@gmail.com";
+              formValues.password = "adarshBalika123";
+            }}
+            className="btn btn-primary"
+          >
+            Test Login
+          </button>
           <button
             onClick={(e) => handleSubmit(e, formValues)}
             type="submit"
