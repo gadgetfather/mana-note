@@ -1,12 +1,23 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/auth-context";
 import "./Navbar.css";
 export function Navbar() {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const handleMenu = () => {
     setIsOpen(!isOpen);
   };
+  const { authDispatch } = useAuth();
 
+  const token = localStorage.getItem("Mananote.Token");
+  const user = JSON.parse(localStorage.getItem("Mananote.User"));
+  const handleLogout = () => {
+    localStorage.removeItem("Mananote.Token");
+    localStorage.removeItem("Mananote.User");
+    authDispatch({ type: "SET_USER", payload: {} });
+    navigate("/");
+  };
   return (
     <>
       <nav className="navbar">
@@ -14,12 +25,25 @@ export function Navbar() {
           <h1>ManaNote</h1>
         </Link>
         <div className="nav-actions">
-          <Link to={"/signup"} className="btn btn-primary btn-action">
-            Signup
-          </Link>
-          <Link to={"/login"} className="btn btn-secondary btn-action login">
-            Login
-          </Link>
+          {token ? (
+            <p>Hello,{user.firstName}</p>
+          ) : (
+            <Link to={"/signup"} className="btn btn-primary btn-action">
+              Signup
+            </Link>
+          )}
+          {token ? (
+            <span
+              onClick={handleLogout}
+              className="material-icons-outlined logout-icon"
+            >
+              logout
+            </span>
+          ) : (
+            <Link to={"/login"} className="btn btn-secondary btn-action login">
+              Login
+            </Link>
+          )}
           <button onClick={handleMenu} className="btn main-menu">
             {isOpen ? (
               <span className="material-icons-outlined">close</span>
@@ -30,13 +54,29 @@ export function Navbar() {
         </div>
       </nav>
       <div className={isOpen ? "mobile-nav is-opened" : "mobile-nav"}>
-        <Link
-          onClick={() => setIsOpen(false)}
-          to={"/login"}
-          className="btn btn-nav"
-        >
-          Login
-        </Link>
+        {token ? (
+          <>
+            <p className="btn btn-nav">
+              <span className="material-icons-outlined">logout</span>Logout
+            </p>
+            <Link
+              onClick={() => setIsOpen(false)}
+              to={"/login"}
+              className="btn btn-nav"
+            >
+              <span className="material-icons-outlined">archive</span>
+              Archived
+            </Link>
+          </>
+        ) : (
+          <Link
+            onClick={() => setIsOpen(false)}
+            to={"/login"}
+            className="btn btn-nav"
+          >
+            Login
+          </Link>
+        )}
       </div>
     </>
   );

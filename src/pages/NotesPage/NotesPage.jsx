@@ -17,11 +17,11 @@ export function NotesPage() {
           className="note-searchbar-desktop"
           type="text"
         />
-        <span class="material-icons sort-icon-desktop">filter_list</span>
+        <span className="material-icons sort-icon-desktop">filter_list</span>
       </div>
       <div className="searchbar-container-mobile">
         <input className="note-searchbar-mobile" type="text" />
-        <span class="material-icons sort-icon">category</span>
+        <span className="material-icons sort-icon">category</span>
       </div>
       {addNoteEnabled ? <AddNote setAddNoteEnabled={setAddNoteEnabled} /> : ""}
       <div className="notes-list">

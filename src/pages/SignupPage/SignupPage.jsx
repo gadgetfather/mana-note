@@ -1,4 +1,5 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useState, useEffect } from "react";
+import { useAuth } from "../../context/auth-context";
 import "./SignupPage.css";
 
 export const validate = (values) => {
@@ -27,18 +28,36 @@ const signupReducer = (state, action) => {
   }
 };
 export function SignupPage() {
+  const { authInfo, signup } = useAuth();
+  const [isSubmit, setIsSubmit] = useState(false);
   const [formValues, formValuesDispatch] = useReducer(
     signupReducer,
     initialObj
   );
   const { errors } = formValues;
+
   const handleSubmit = (e, values) => {
     e.preventDefault();
     formValuesDispatch({ type: "ERRORS", payload: validate(values) });
+    setIsSubmit(true);
   };
-  console.log("signup", formValues);
+
+  useEffect(() => {
+    if (Object.keys(formValues.errors).length === 0 && isSubmit) {
+      signup(formValues.email, formValues.password, formValues.firstName);
+    }
+  }, [formValues.errors]);
   return (
     <>
+      {authInfo.text ? (
+        <div className="toast sucess success-toast">
+          <p>{authInfo.text}</p>
+          <small>Redirecting to login page...</small>
+        </div>
+      ) : (
+        ""
+      )}
+
       <main className="main-content_signup">
         <h1 className="page-title">Signup</h1>
         <form className="form-container">

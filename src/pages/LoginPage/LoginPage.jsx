@@ -1,4 +1,5 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useState, useEffect } from "react";
+import { useAuth } from "../../context/auth-context";
 import "./LoginPage.css";
 
 export const validate = (values) => {
@@ -23,22 +24,44 @@ const formValueReducer = (state, action) => {
       return { ...state, [action.name]: action.payload };
     case "VALIDATE":
       return { ...state, errors: action.payload };
+    case "TEST":
+      return {
+        email: "adarshbalika@gmail.com",
+        password: "adarshBalika123",
+        errors: {},
+      };
   }
 };
 
 export function LoginPage() {
+  const { login, authInfo, authDispatch } = useAuth();
   const [formValues, formValueDispatch] = useReducer(
     formValueReducer,
     initialObj
   );
+  const [isSubmit, setIsSubmit] = useState(false);
+  useEffect(() => {
+    if (Object.keys(formValues.errors).length === 0 && isSubmit) {
+      login(formValues.email, formValues.password);
+    }
+  }, [formValues.errors]);
   const { errors } = formValues;
   const handleSubmit = (e, values) => {
     e.preventDefault();
     formValueDispatch({ type: "VALIDATE", payload: validate(values) });
+    setIsSubmit(true);
   };
   console.log(formValues);
   return (
     <>
+      {authInfo.login_text ? (
+        <div className="toast sucess success-toast">
+          <p>{authInfo.login_text}</p>
+          <small>Welcome Back...</small>
+        </div>
+      ) : (
+        ""
+      )}
       <main className="main-content_login">
         <h1 className="page-title">Login</h1>
         <form className="form-container">
@@ -82,6 +105,17 @@ export function LoginPage() {
           ) : (
             ""
           )}
+          {authInfo.login_error ? <p>incorrect email or password</p> : ""}
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              formValues.email = "adarshbalika@gmail.com";
+              formValues.password = "adarshBalika123";
+            }}
+            className="btn btn-primary"
+          >
+            Test Login
+          </button>
           <button
             onClick={(e) => handleSubmit(e, formValues)}
             type="submit"
