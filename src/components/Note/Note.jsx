@@ -6,7 +6,7 @@ import "./Note.css";
 export function Note(props) {
   const { text, title, date, _id } = props;
   const { deleteNote } = useNote();
-  const { addToArchive, archivesArr, deleteFromArchive } = useArchive();
+  const { addToArchive, archivesArr, restoreFromArchive } = useArchive();
   return (
     <div className="note-container">
       <div className="note-text-area">
@@ -24,14 +24,14 @@ export function Note(props) {
           </span>
           {archivesArr.some((note) => note._id === _id) ? (
             <span
-              onClick={() => deleteFromArchive(_id, props)}
+              onClick={() => restoreFromArchive(_id)}
               className="material-icons note-action-button"
             >
               archive
             </span>
           ) : (
             <span
-              onClick={() => addToArchive(_id)}
+              onClick={() => addToArchive(_id, props)}
               className="material-icons-outlined note-action-button"
             >
               archive

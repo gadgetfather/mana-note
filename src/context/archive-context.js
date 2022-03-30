@@ -6,7 +6,8 @@ const ArchiveContext = createContext();
 
 const ArchiveProvider = ({ children }) => {
   const [archivesArr, setArchivesArr] = useState([]);
-  const { setNotes, notes } = useNote();
+  const { setNotes } = useNote();
+
   const addToArchive = async (noteid, note) => {
     try {
       const response = await axios.post(
@@ -17,26 +18,29 @@ const ArchiveProvider = ({ children }) => {
         { headers: { authorization: encodedToken } }
       );
       const {
-        data: { notes, archives },
+        data: { archives, notes },
       } = response;
       setNotes(notes);
-
       setArchivesArr(archives);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const deleteFromArchive = async (noteid, note) => {
+  const restoreFromArchive = async (noteid) => {
     try {
-      const response = await axios.delete(`/api/archives/delete/${noteid}`, {
-        headers: { authorization: encodedToken },
-      });
-      console.log("response ", response);
+      const response = await axios.post(
+        `/api/archives/restore/${noteid}`,
+        {},
+        {
+          headers: { authorization: encodedToken },
+        }
+      );
+
       const {
-        data: { archives },
+        data: { archives, notes },
       } = response;
-      setNotes([...notes, note]);
+      setNotes(notes);
       setArchivesArr(archives);
     } catch (error) {
       console.log(error);
@@ -44,7 +48,7 @@ const ArchiveProvider = ({ children }) => {
   };
   return (
     <ArchiveContext.Provider
-      value={{ addToArchive, archivesArr, deleteFromArchive }}
+      value={{ addToArchive, archivesArr, restoreFromArchive }}
     >
       {children}
     </ArchiveContext.Provider>
