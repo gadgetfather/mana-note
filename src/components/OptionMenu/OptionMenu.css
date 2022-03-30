@@ -8,10 +8,10 @@
   padding: 0.6rem 0.5rem;
   border-top-left-radius: 0.7rem;
   border-top-right-radius: 0.7rem;
-  bottom: -5%;
-  left: 50%;
-  right: 50%;
-  transform: translate(-50%, -50%);
+
+  left: 0;
+  bottom: 0;
+
   z-index: 50;
 }
 .option-menu .icon {
@@ -27,4 +27,10 @@
 .active {
   background-color: #fff;
   color: black;
+}
+
+@media screen and (min-width: 1000px) {
+  .option-menu {
+    display: none;
+  }
 }
