@@ -1,5 +1,5 @@
 import React from "react";
-import { Note, OptionMenu } from "../../components";
+import { Note, OptionMenu, Sidebar } from "../../components";
 import { useArchive } from "../../context/archive-context";
 
 export function ArchivePage() {
@@ -18,13 +18,17 @@ export function ArchivePage() {
         <input className="note-searchbar-mobile" type="text" />
         <span className="material-icons sort-icon">category</span>
       </div>
-      <h2 className="page-title">Archive</h2>
-      <div className="notes-list">
-        {archivesArr.map((item) => (
-          <Note key={item._id} {...item} />
-        ))}
+      <div className="content-container">
+        <Sidebar />
+        <div className="content-container-right">
+          <h2 className="page-title">Archive</h2>
+          <div className="notes-list">
+            {archivesArr.map((item) => (
+              <Note key={item._id} {...item} />
+            ))}
+          </div>
+        </div>
       </div>
-
       <button
         // onClick={handleAddNote}
         className="btn btn-floating note-floating-btn"
