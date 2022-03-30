@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./NotesPage.css";
-import { AddNote, Note } from "../../components";
+import { AddNote, Note, OptionMenu } from "../../components";
 import { useNote } from "../../context/note-context";
 export function NotesPage() {
   const { notes } = useNote();
@@ -23,6 +23,7 @@ export function NotesPage() {
         <input className="note-searchbar-mobile" type="text" />
         <span className="material-icons sort-icon">category</span>
       </div>
+      <h2 className="page-title">All Notes</h2>
       {addNoteEnabled ? <AddNote setAddNoteEnabled={setAddNoteEnabled} /> : ""}
       <div className="notes-list">
         {notes.map((item) => (
@@ -36,6 +37,7 @@ export function NotesPage() {
       >
         <span className="material-icons-outlined">add</span>
       </button>
+      <OptionMenu />
     </main>
   );
 }
