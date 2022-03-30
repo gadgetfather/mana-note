@@ -4,10 +4,15 @@
 }
 .link {
   text-decoration: none;
+  color: white;
 }
 
 .error-text {
   color: red;
+}
+.page-title {
+  text-align: center;
+  margin: 00.5rem;
 }
 .success-toast {
   /* display: none; */
