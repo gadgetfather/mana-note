@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import { useArchive } from "../../context/archive-context";
 import { useNote } from "../../context/note-context";
 import "./Note.css";
 
 export function Note(props) {
   const { text, title, date, _id } = props;
   const { deleteNote } = useNote();
-  const [temp, setTemp] = useState(false);
+  const { addToArchive, archivesArr, deleteFromArchive } = useArchive();
   return (
     <div className="note-container">
       <div className="note-text-area">
@@ -21,9 +22,21 @@ export function Note(props) {
           >
             delete
           </span>
-          <span className="material-icons-outlined note-action-button">
-            archive
-          </span>
+          {archivesArr.some((note) => note._id === _id) ? (
+            <span
+              onClick={() => deleteFromArchive(_id, props)}
+              className="material-icons note-action-button"
+            >
+              archive
+            </span>
+          ) : (
+            <span
+              onClick={() => addToArchive(_id)}
+              className="material-icons-outlined note-action-button"
+            >
+              archive
+            </span>
+          )}
           <span className="material-icons-outlined note-action-button">
             edit
           </span>
