@@ -44,14 +44,6 @@ export function AddNote(props) {
       </div>
       <div className="note-footer">
         <div className="note-footer_left">
-          <span>
-            {/* <input
-              onChange={(e) => setValue({ ...value, date: e.target.value })}
-              type="date"
-              name="date"
-              id="date"
-            /> */}
-          </span>
           <span
             onClick={() => setShowPicker(!showPicker)}
             className={`picker`}
