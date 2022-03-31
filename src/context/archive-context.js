@@ -50,9 +50,34 @@ const ArchiveProvider = ({ children }) => {
       console.log(error);
     }
   };
+  const deleteFromArchive = async (noteid) => {
+    try {
+      const response = await axios.delete(
+        `/api/archives/delete/${noteid}`,
+
+        {
+          headers: { authorization: encodedToken },
+        }
+      );
+      if (response.status === 200) {
+        const {
+          data: { archives },
+        } = response;
+
+        setArchivesArr(archives);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <ArchiveContext.Provider
-      value={{ addToArchive, archivesArr, restoreFromArchive }}
+      value={{
+        addToArchive,
+        archivesArr,
+        restoreFromArchive,
+        deleteFromArchive,
+      }}
     >
       {children}
     </ArchiveContext.Provider>
