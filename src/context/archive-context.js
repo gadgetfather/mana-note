@@ -17,11 +17,14 @@ const ArchiveProvider = ({ children }) => {
         },
         { headers: { authorization: encodedToken } }
       );
-      const {
-        data: { archives, notes },
-      } = response;
-      setNotes(notes);
-      setArchivesArr(archives);
+
+      if (response.status === 201) {
+        const {
+          data: { archives, notes },
+        } = response;
+        setNotes(notes);
+        setArchivesArr(archives);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -36,12 +39,13 @@ const ArchiveProvider = ({ children }) => {
           headers: { authorization: encodedToken },
         }
       );
-
-      const {
-        data: { archives, notes },
-      } = response;
-      setNotes(notes);
-      setArchivesArr(archives);
+      if (response.status === 200) {
+        const {
+          data: { archives, notes },
+        } = response;
+        setNotes(notes);
+        setArchivesArr(archives);
+      }
     } catch (error) {
       console.log(error);
     }
