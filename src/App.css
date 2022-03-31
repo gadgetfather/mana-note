@@ -1,3 +1,12 @@
+:root {
+  --note-bg-red: rgb(255, 169, 169);
+  --note-bg-yellow: rgb(255, 255, 145);
+  --note-bg-blue: rgb(160, 160, 252);
+  --note-bg-green: rgb(163, 252, 163);
+  --default-note-bg: lightgray;
+  /* --note-bg-color-container: #e5f3f0; */
+  --note-bg-color-container: rgb(0, 0, 0);
+}
 .main-container {
   min-height: 100vh;
 }

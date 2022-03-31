@@ -8,18 +8,24 @@ const token =
 export function AddNote(props) {
   const { setAddNoteEnabled } = props;
   const { notes, addNote, deleteNote } = useNote();
-  const [value, setValue] = useState({ title: "", text: "", date: "" });
+  const [value, setValue] = useState({
+    title: "",
+    text: "",
+    date: "",
+    notebg: "default-note-bg",
+  });
+  const [showPicker, setShowPicker] = useState(false);
   const handlesubmit = (e, value) => {
     e.preventDefault();
     addNote(value);
-    setValue({ title: "", text: "", date: "" });
+    setValue({ title: "", text: "", date: "", color: "" });
     setAddNoteEnabled(false);
   };
-  console.log(value);
+
   return (
     <form
       onSubmit={(e) => handlesubmit(e, value)}
-      className="note-container add-note"
+      className={`note-container add-note ${value.notebg}`}
     >
       <div className="note-text-area">
         <textarea
@@ -39,13 +45,35 @@ export function AddNote(props) {
       <div className="note-footer">
         <div className="note-footer_left">
           <span>
-            <input
+            {/* <input
               onChange={(e) => setValue({ ...value, date: e.target.value })}
               type="date"
               name="date"
               id="date"
-            />
+            /> */}
           </span>
+          <span
+            onClick={() => setShowPicker(!showPicker)}
+            className={`picker`}
+          ></span>
+          <div className={`color-container ${showPicker ? "show" : ""}`}>
+            <span
+              onClick={() => setValue({ ...value, notebg: "red" })}
+              className="colors red"
+            ></span>
+            <span
+              onClick={() => setValue({ ...value, notebg: "green" })}
+              className="colors green"
+            ></span>
+            <span
+              onClick={() => setValue({ ...value, notebg: "blue" })}
+              className="colors blue"
+            ></span>
+            <span
+              onClick={() => setValue({ ...value, notebg: "yellow" })}
+              className="colors yellow"
+            ></span>
+          </div>
           <span
             onClick={() => setAddNoteEnabled(false)}
             className="material-icons-outlined note-action-button"
@@ -54,12 +82,7 @@ export function AddNote(props) {
           </span>
         </div>
         <button className="btn-submit">
-          <span
-            // onClick={() => }
-            className="material-icons-outlined btn-note-submit"
-          >
-            done
-          </span>
+          <span className="material-icons-outlined btn-note-submit">done</span>
         </button>
       </div>
     </form>
