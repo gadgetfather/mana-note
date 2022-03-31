@@ -3,9 +3,62 @@
   border: none;
   resize: none;
 }
+.add-note {
+  position: relative;
+  color: black;
+  border: 1px solid black;
+}
+::placeholder {
+  color: black;
+}
 .btn-submit {
   background: none;
   border: none;
+}
+.picker {
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  border: 2px solid black;
+  padding: 0.2rem;
+  cursor: pointer;
+}
+.color-container {
+  width: 10rem;
+  height: 3rem;
+  background-color: var(--note-bg-color-container);
+  position: absolute;
+  bottom: -18%;
+  left: 6%;
+  border-radius: 0.5rem;
+  display: none;
+  justify-content: space-around;
+  align-items: center;
+}
+.show {
+  display: flex;
+}
+.color-container .colors {
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.default-note-bg {
+  background-color: var(--default-note-bg);
+}
+.red {
+  background-color: var(--note-bg-red);
+}
+.blue {
+  background-color: var(--note-bg-blue);
+}
+.yellow {
+  background-color: var(--note-bg-yellow);
+}
+.green {
+  background-color: var(--note-bg-green);
 }
 .note-text.note-title {
   height: 3rem;

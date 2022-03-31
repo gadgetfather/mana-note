@@ -4,12 +4,12 @@ import { useNote } from "../../context/note-context";
 import "./Note.css";
 
 export function Note(props) {
-  const { text, title, date, _id } = props;
+  const { text, title, date, _id, notebg } = props;
   const { deleteNote } = useNote();
   const { addToArchive, archivesArr, restoreFromArchive, deleteFromArchive } =
     useArchive();
   return (
-    <div className="note-container">
+    <div className={`note-container ${notebg} `}>
       <div className="note-text-area">
         <h1 className="note-title">{title}</h1>
         <p className="note-text">{text}</p>
