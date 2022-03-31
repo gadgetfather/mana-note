@@ -9,14 +9,18 @@ export function AddNote(props) {
   const { setAddNoteEnabled } = props;
   const { notes, addNote, deleteNote } = useNote();
   const [value, setValue] = useState({ title: "", text: "", date: "" });
-  const handlesubmit = (value) => {
+  const handlesubmit = (e, value) => {
+    e.preventDefault();
     addNote(value);
     setValue({ title: "", text: "", date: "" });
     setAddNoteEnabled(false);
   };
   console.log(value);
   return (
-    <div className="note-container add-note">
+    <form
+      onSubmit={(e) => handlesubmit(e, value)}
+      className="note-container add-note"
+    >
       <div className="note-text-area">
         <textarea
           onChange={(e) => setValue({ ...value, title: e.target.value })}
@@ -29,6 +33,7 @@ export function AddNote(props) {
           value={value.text}
           className="note-text text-area"
           placeholder="Note"
+          required
         ></textarea>
       </div>
       <div className="note-footer">
@@ -48,13 +53,15 @@ export function AddNote(props) {
             delete
           </span>
         </div>
-        <span
-          onClick={() => handlesubmit(value)}
-          className="material-icons-outlined btn-note-submit"
-        >
-          done
-        </span>
+        <button className="btn-submit">
+          <span
+            // onClick={() => }
+            className="material-icons-outlined btn-note-submit"
+          >
+            done
+          </span>
+        </button>
       </div>
-    </div>
+    </form>
   );
 }

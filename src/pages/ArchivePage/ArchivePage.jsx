@@ -1,14 +1,9 @@
-import React, { useState } from "react";
-import "./NotesPage.css";
-import { AddNote, Note, OptionMenu, Sidebar } from "../../components";
-import { useNote } from "../../context/note-context";
-export function NotesPage() {
-  const { notes } = useNote();
+import React from "react";
+import { Note, OptionMenu, Sidebar } from "../../components";
+import { useArchive } from "../../context/archive-context";
 
-  const [addNoteEnabled, setAddNoteEnabled] = useState(false);
-  const handleAddNote = () => {
-    setAddNoteEnabled(true);
-  };
+export function ArchivePage() {
+  const { archivesArr } = useArchive();
   return (
     <main className="main-content_notes">
       <div className="searchbar-container-desktop">
@@ -26,22 +21,16 @@ export function NotesPage() {
       <div className="content-container">
         <Sidebar />
         <div className="content-container-right">
-          <h2 className="page-title">All Notes</h2>
-          {addNoteEnabled ? (
-            <AddNote setAddNoteEnabled={setAddNoteEnabled} />
-          ) : (
-            ""
-          )}
+          <h2 className="page-title">Archive</h2>
           <div className="notes-list">
-            {notes.map((item) => (
+            {archivesArr.map((item) => (
               <Note key={item._id} {...item} />
             ))}
           </div>
         </div>
       </div>
-
       <button
-        onClick={handleAddNote}
+        // onClick={handleAddNote}
         className="btn btn-floating note-floating-btn"
       >
         <span className="material-icons-outlined">add</span>

@@ -1,0 +1,36 @@
+.option-menu {
+  color: #fff;
+  position: fixed;
+  background-color: var(--primary-color);
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 0.6rem 0.5rem;
+  border-top-left-radius: 0.7rem;
+  border-top-right-radius: 0.7rem;
+
+  left: 0;
+  bottom: 0;
+
+  z-index: 50;
+}
+.option-menu .icon {
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  cursor: pointer;
+}
+.option-menu .icon:hover {
+  background-color: white;
+  color: black;
+  border-radius: 0.3rem;
+}
+.active {
+  background-color: #fff;
+  color: black;
+}
+
+@media screen and (min-width: 1000px) {
+  .option-menu {
+    display: none;
+  }
+}

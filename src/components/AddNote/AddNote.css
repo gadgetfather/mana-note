@@ -3,6 +3,10 @@
   border: none;
   resize: none;
 }
+.btn-submit {
+  background: none;
+  border: none;
+}
 .note-text.note-title {
   height: 3rem;
   font-size: 1.5rem;
