@@ -5,8 +5,9 @@
   flex-direction: column;
   width: 15%;
   gap: 0.5rem;
-  height: calc(10rem);
+  height: calc(100vh - 5.87rem);
   margin-right: 0.5rem;
+  position: relative;
 }
 .sidebar-item {
   color: black;
@@ -25,6 +26,48 @@
 .sidebar-active {
   background-color: var(--primary-color);
   color: white;
+}
+.info-container {
+  position: absolute;
+  bottom: 05%;
+  left: -45%;
+  width: 10rem;
+  min-height: 15rem;
+  background-color: var(--info-container-bg);
+  border-radius: 0.5rem;
+  line-height: 1.4;
+  display: none;
+  transition: all 2s ease;
+}
+.info-container-show {
+  display: block;
+  transition: all 2s;
+}
+code {
+  background-color: lightgray;
+  border-radius: 0.2rem;
+  border: 1px solid black;
+  padding: 0 0.2rem;
+}
+.info-container ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-left: 1.2rem;
+  padding: 0.5rem;
+}
+.info-container ul .link {
+  color: black;
+  font-weight: bold;
+}
+.info-icon {
+  margin-top: auto;
+  align-self: flex-end;
+  margin-right: 20px;
+  cursor: pointer;
+}
+.info-icon span {
+  font-size: 1.4rem;
 }
 
 @media screen and (min-width: 1000px) {
