@@ -1,7 +1,6 @@
 import React from "react";
 import { Note, OptionMenu, Sidebar, TrashNote } from "../../components";
 import { useTrash } from "../../context/trash-context";
-import "./TrashPage.css";
 export function TrashPage() {
   const { trashArr, setTrashArr } = useTrash();
 
