@@ -6,6 +6,7 @@
   --default-note-bg: lightgray;
   /* --note-bg-color-container: #e5f3f0; */
   --note-bg-color-container: rgb(0, 0, 0);
+  --info-container-bg: antiquewhite;
 }
 .main-container {
   min-height: 100vh;

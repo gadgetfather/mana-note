@@ -48,6 +48,17 @@ export function OptionMenu() {
       >
         label
       </span>
+      <Link className="link" to={"/info"}>
+        <span
+          className={
+            location.pathname == "/info"
+              ? "material-icons-outlined icon active"
+              : "material-icons-outlined  icon"
+          }
+        >
+          info
+        </span>
+      </Link>
     </div>
   );
 }

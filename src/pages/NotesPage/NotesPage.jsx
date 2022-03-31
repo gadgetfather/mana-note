@@ -4,7 +4,6 @@ import { AddNote, Note, OptionMenu, Sidebar } from "../../components";
 import { useNote } from "../../context/note-context";
 export function NotesPage() {
   const { notes } = useNote();
-
   const [addNoteEnabled, setAddNoteEnabled] = useState(false);
   const handleAddNote = () => {
     setAddNoteEnabled(true);
@@ -16,6 +15,7 @@ export function NotesPage() {
           placeholder="Search for a note..."
           className="note-searchbar-desktop"
           type="text"
+          required
         />
         <span className="material-icons sort-icon-desktop">filter_list</span>
       </div>

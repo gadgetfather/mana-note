@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ReactMarkdown from "react-markdown";
 import { useArchive } from "../../context/archive-context";
 import { useNote } from "../../context/note-context";
 import "./Note.css";
@@ -12,7 +13,7 @@ export function Note(props) {
     <div className={`note-container ${notebg} `}>
       <div className="note-text-area">
         <h1 className="note-title">{title}</h1>
-        <p className="note-text">{text}</p>
+        <ReactMarkdown className="note-text" children={text} />
       </div>
       <div className="note-footer">
         <div className="note-footer_left">
@@ -38,7 +39,7 @@ export function Note(props) {
               onClick={() => restoreFromArchive(_id)}
               className="material-icons note-action-button"
             >
-              archive
+              unarchive
             </span>
           ) : (
             <span

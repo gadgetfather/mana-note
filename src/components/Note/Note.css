@@ -15,6 +15,12 @@
 .note-text {
   font-size: 1.2rem;
   margin-top: 0.5rem;
+  word-wrap: break-word;
+  padding-bottom: 1rem;
+}
+.note-text ol,
+.note-text ul {
+  margin-left: 1rem;
 }
 .note-footer {
   display: flex;
