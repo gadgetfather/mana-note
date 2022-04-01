@@ -27,7 +27,7 @@ export function Note(props) {
       return "low-priority";
     }
   };
-  console.log(label);
+
   return (
     <div className={`note-container ${notebg} `}>
       <div className="note-text-area">
@@ -40,7 +40,7 @@ export function Note(props) {
       </div>
       <div className="note-footer">
         <div className="note-footer_left">
-          <span>{date}</span>
+          {/* <span>{date}</span> */}
           <span>{time}</span>
           {archivesArr.some((note) => note._id === _id) ? (
             <span
