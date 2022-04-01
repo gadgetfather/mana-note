@@ -1,0 +1,34 @@
+.filter-container {
+  position: absolute;
+  top: 2rem;
+  /* z-index: 1000; */
+  width: 97%;
+  height: calc(100vh - 3.1rem);
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.sort-container {
+  margin-left: 2rem;
+  display: flex;
+  gap: 0.4rem;
+  flex-direction: column;
+}
+
+.sort-container span label {
+  margin-left: 5px;
+}
+
+.btn-clear {
+  align-self: flex-end;
+  width: fit-content;
+  font-size: 1rem;
+}
+.filter-title-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
