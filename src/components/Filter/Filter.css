@@ -1,7 +1,6 @@
 .filter-container {
   position: absolute;
   top: 2rem;
-  /* z-index: 1000; */
   width: 97%;
   height: calc(100vh - 3.1rem);
   background-color: #fff;
@@ -31,4 +30,10 @@
   justify-content: space-between;
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 1000px) {
+  .filter-container {
+    display: none;
+  }
 }
