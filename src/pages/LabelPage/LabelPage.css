@@ -18,4 +18,6 @@
 .label-menu ul {
   display: flex;
   gap: 0.4rem;
+  overflow: auto;
+  white-space: nowrap;
 }
