@@ -7,6 +7,10 @@
   /* --note-bg-color-container: #e5f3f0; */
   --note-bg-color-container: rgb(0, 0, 0);
   --info-container-bg: antiquewhite;
+  --label-tag: antiquewhite;
+  --priority-high: rgb(254, 123, 123);
+  --priority-medium: rgb(255, 255, 127);
+  --priority-low: rgb(120, 120, 255);
 }
 .main-container {
   min-height: 100vh;

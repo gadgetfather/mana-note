@@ -1,6 +1,7 @@
 .main-content_notes {
   padding: 0 0.5rem;
   min-height: calc(100vh - 3.4rem);
+  position: relative;
 }
 .content-container {
   display: flex;

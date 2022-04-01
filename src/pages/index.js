@@ -5,3 +5,4 @@ export { NotesPage } from "./NotesPage/NotesPage";
 export { ArchivePage } from "./ArchivePage/ArchivePage";
 export { InfoPage } from "./InfoPage/InfoPage";
 export { TrashPage } from "./TrashPage/TrashPage";
+export { LabelPage } from "./LabelPage/LabelPage";

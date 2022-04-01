@@ -5,3 +5,4 @@ export { AddNote } from "./AddNote/AddNote";
 export { OptionMenu } from "./OptionMenu/OptionMenu";
 export { Sidebar } from "./Sidebar/Sidebar";
 export { TrashNote } from "./TrashNote/TrashNote";
+export { Filter } from "./Filter/Filter";
