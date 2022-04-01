@@ -24,6 +24,7 @@
 }
 .note-footer {
   display: flex;
+
   align-items: center;
   justify-content: space-between;
 }
@@ -41,6 +42,28 @@
   padding: 0.2rem;
   color: #fff;
   cursor: pointer;
+}
+.tags-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto;
+  margin-bottom: 5px;
+}
+.tag {
+  padding: 0.2rem 0.9rem;
+  border-radius: 99999999px;
+}
+.label-tag {
+  background-color: antiquewhite;
+}
+.high-priority {
+  background-color: var(--priority-high);
+}
+.medium-priority {
+  background-color: var(--priority-medium);
+}
+.low-priority {
+  background-color: var(--priority-low);
 }
 
 /* media query */
