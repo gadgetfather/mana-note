@@ -11,6 +11,7 @@ import {
   ArchivePage,
   InfoPage,
   TrashPage,
+  LabelPage,
 } from "./pages/index";
 const encodedToken = localStorage.getItem("Mananote.Token");
 
@@ -22,6 +23,7 @@ function App() {
         <Routes>
           <Route path="/mock" element={<MockmanEs />} />
           <Route path="/trash" element={<TrashPage />} />
+          <Route path="/label" element={<LabelPage />} />
           <Route path="/info" element={<InfoPage />} />
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginPage />} />
