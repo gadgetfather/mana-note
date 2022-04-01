@@ -4,7 +4,7 @@ import { useNote } from "../../context/note-context";
 import { useTrash } from "../../context/trash-context";
 
 export function TrashNote(props) {
-  const { text, title, date, _id, notebg } = props;
+  const { text, title, date, _id, notebg, label, priority } = props;
 
   const { trashArr, setTrashArr } = useTrash();
   const { notes, setNotes, deleteNote } = useNote();
@@ -16,12 +16,24 @@ export function TrashNote(props) {
   const deleteForever = (id) => {
     setTrashArr(trashArr.filter((note) => note._id !== id));
   };
-
+  const getPriorityBg = (priority) => {
+    if (priority === "high") {
+      return "high-priority";
+    } else if (priority === "medium") {
+      return "medium-priority";
+    } else if (priority === "low") {
+      return "low-priority";
+    }
+  };
   return (
     <div className={`note-container ${notebg} `}>
       <div className="note-text-area">
         <h1 className="note-title">{title}</h1>
         <ReactMarkdown className="note-text" children={text} />
+      </div>
+      <div className="tags-container">
+        {label ? <span className="label-tag tag">{label}</span> : ""}
+        <span className={`tag ${getPriorityBg(priority)}`}>{priority}</span>
       </div>
       <div className="note-footer">
         <div className="note-footer_left">
