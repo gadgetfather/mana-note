@@ -1,17 +1,53 @@
 import React, { useReducer, useState } from "react";
 import "./NotesPage.css";
-import { AddNote, Filter, Note, OptionMenu, Sidebar } from "../../components";
+import {
+  AddNote,
+  DesktopFilter,
+  EditNote,
+  Filter,
+  Note,
+  OptionMenu,
+  Sidebar,
+} from "../../components";
 import { useNote } from "../../context/note-context";
-
+import { useFilter } from "../../context/filter-context";
+const priorites = { low: 0, medium: 1, high: 2 };
 export function NotesPage() {
   const [filterOpen, setFilterOpen] = useState(false);
+  const [desktopfilterOpen, setDesktopFilterOpen] = useState(false);
   const { notes } = useNote();
   const [addNoteEnabled, setAddNoteEnabled] = useState(false);
+  const {
+    filter: { SortPriority, SortTime },
+  } = useFilter();
 
-  const handleAddNote = () => {
-    setAddNoteEnabled(true);
+  const sortedArr = (data, SortPriority) => {
+    const tempData = [...data];
+    if (SortPriority === "LOW_TO_HIGH") {
+      return tempData.sort(
+        (a, b) => priorites[a.priority] - priorites[b.priority]
+      );
+    }
+    if (SortPriority === "HIGH_TO_LOW") {
+      return tempData.sort(
+        (a, b) => priorites[b.priority] - priorites[a.priority]
+      );
+    }
+    return data;
+  };
+  const sortedByTime = (data, SortTime) => {
+    const tempData = [...data];
+    if (SortTime === "NEW_TO_OLD") {
+      return tempData.sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
+    }
+    if (SortTime === "OLD_TO_NEW") {
+      return tempData.sort((a, b) => Date.parse(a.date) - Date.parse(b.date));
+    }
+    return data;
   };
 
+  const getSortedData = sortedArr(notes, SortPriority);
+  const getSortedDataTime = sortedByTime(getSortedData, SortTime);
   return (
     <main className="main-content_notes">
       <div className="searchbar-container-desktop">
@@ -21,8 +57,14 @@ export function NotesPage() {
           type="text"
           required
         />
-        <span className="material-icons sort-icon-desktop">filter_list</span>
+        <span
+          onClick={() => setDesktopFilterOpen(!desktopfilterOpen)}
+          className="material-icons sort-icon-desktop"
+        >
+          filter_list
+        </span>
       </div>
+      {desktopfilterOpen ? <DesktopFilter /> : ""}
       <div className="searchbar-container-mobile">
         <input className="note-searchbar-mobile" type="text" />
         <span
@@ -37,13 +79,14 @@ export function NotesPage() {
         <Sidebar />
         <div className="content-container-right">
           <h2 className="page-title">All Notes</h2>
+          <EditNote />
           {addNoteEnabled ? (
             <AddNote setAddNoteEnabled={setAddNoteEnabled} />
           ) : (
             ""
           )}
           <div className="notes-list">
-            {notes.map((item) => (
+            {getSortedDataTime.map((item) => (
               <Note key={item._id} {...item} />
             ))}
           </div>
@@ -51,7 +94,7 @@ export function NotesPage() {
       </div>
 
       <button
-        onClick={handleAddNote}
+        onClick={() => setAddNoteEnabled(true)}
         className="btn btn-floating note-floating-btn"
       >
         <span className="material-icons-outlined">add</span>

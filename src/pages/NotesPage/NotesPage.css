@@ -33,6 +33,7 @@
 }
 .sort-icon-desktop {
   font-size: 1.4rem;
+  cursor: pointer;
 }
 .searchbar-container-mobile {
   display: flex;
