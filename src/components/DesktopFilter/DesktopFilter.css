@@ -1,0 +1,18 @@
+.desktop-filter {
+  position: absolute;
+  top: 4%;
+  right: 6%;
+  background-color: var(#fff);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+  height: 15rem;
+  width: 10rem;
+  font-size: 0.7rem;
+  padding: 0 0.4rem;
+  flex-direction: column;
+}
+.desktop-filter .sort-container {
+  margin-bottom: 0.5rem;
+}
+.desktop-filter .filter-title-container .btn-clear {
+  font-size: 0.6rem;
+}
