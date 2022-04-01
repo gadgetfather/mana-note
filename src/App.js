@@ -10,6 +10,7 @@ import {
   NotesPage,
   ArchivePage,
   InfoPage,
+  TrashPage,
 } from "./pages/index";
 const encodedToken = localStorage.getItem("Mananote.Token");
 
@@ -20,6 +21,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/mock" element={<MockmanEs />} />
+          <Route path="/trash" element={<TrashPage />} />
           <Route path="/info" element={<InfoPage />} />
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginPage />} />

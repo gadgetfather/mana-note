@@ -17,15 +17,17 @@ export function OptionMenu() {
           notes
         </span>
       </Link>
-      <span
-        className={
-          location.pathname == "/trash"
-            ? "material-icons-outlined icon active"
-            : "material-icons-outlined icon "
-        }
-      >
-        delete
-      </span>
+      <Link className="link" to={"/trash"}>
+        <span
+          className={
+            location.pathname == "/trash"
+              ? "material-icons-outlined icon active"
+              : "material-icons-outlined icon "
+          }
+        >
+          delete
+        </span>
+      </Link>
 
       <Link className="link" to={"/archived"}>
         <span
