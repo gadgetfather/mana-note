@@ -2,7 +2,7 @@ import React, { useReducer, useState } from "react";
 import "./NotesPage.css";
 import { AddNote, Filter, Note, OptionMenu, Sidebar } from "../../components";
 import { useNote } from "../../context/note-context";
-import { useFilter } from "../../context/filter-context";
+
 export function NotesPage() {
   const [filterOpen, setFilterOpen] = useState(false);
   const { notes } = useNote();

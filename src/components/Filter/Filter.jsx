@@ -1,8 +1,6 @@
 import React from "react";
-import { useFilter } from "../../context/filter-context";
 import "./Filter.css";
 export function Filter() {
-  const { sort, sortDispatch } = useFilter();
   return (
     <div className="filter-container">
       <div className="filter-title-container">
