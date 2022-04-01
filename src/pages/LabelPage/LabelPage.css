@@ -1,0 +1,21 @@
+.label-menu {
+  display: flex;
+  gap: 0.2rem;
+  font-size: 1.2rem;
+  justify-content: center;
+}
+.label-menu .tag {
+  border: 1px solid black;
+}
+.label-menu ul .active {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+.label-menu ul li {
+  list-style: none;
+  cursor: pointer;
+}
+.label-menu ul {
+  display: flex;
+  gap: 0.4rem;
+}
