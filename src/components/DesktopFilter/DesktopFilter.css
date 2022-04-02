@@ -9,6 +9,7 @@
   font-size: 0.7rem;
   padding: 0 0.4rem;
   flex-direction: column;
+  z-index: 100;
 }
 .desktop-filter .sort-container {
   margin-bottom: 0.5rem;
