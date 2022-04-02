@@ -1,14 +1,14 @@
 import React from "react";
 import { useFilter } from "../../context/filter-context";
-import "./Filter.css";
 
-export function Filter() {
+import "./DesktopFilter.css";
+export function DesktopFilter() {
   const {
-    filter: { SortTime, SortPriority },
     filterDispatch,
+    filter: { SortPriority, SortTime },
   } = useFilter();
   return (
-    <div className="filter-container">
+    <div className="desktop-filter">
       <div className="filter-title-container">
         <h1>Sort</h1>
         <button

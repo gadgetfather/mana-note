@@ -33,6 +33,7 @@
 }
 .sort-icon-desktop {
   font-size: 1.4rem;
+  cursor: pointer;
 }
 .searchbar-container-mobile {
   display: flex;
@@ -70,6 +71,6 @@
   }
   .main-content_notes .notes-list {
     justify-content: flex-start;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 15rem));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 14rem));
   }
 }
