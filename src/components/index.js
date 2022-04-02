@@ -7,3 +7,4 @@ export { Sidebar } from "./Sidebar/Sidebar";
 export { TrashNote } from "./TrashNote/TrashNote";
 export { Filter } from "./Filter/Filter";
 export { DesktopFilter } from "./DesktopFilter/DesktopFilter";
+export { EditNote } from "./EditNote/EditNote";
