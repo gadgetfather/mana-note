@@ -13,7 +13,7 @@ import {
   TrashPage,
   LabelPage,
 } from "./pages/index";
-const encodedToken = localStorage.getItem("Mananote.Token");
+import { ProtectedRoute } from "./route/ProtectedRoute";
 
 function App() {
   return (
@@ -22,14 +22,18 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/mock" element={<MockmanEs />} />
-          <Route path="/trash" element={<TrashPage />} />
-          <Route path="/label" element={<LabelPage />} />
-          <Route path="/info" element={<InfoPage />} />
+
+          <Route element={<ProtectedRoute />}>
+            <Route path="/trash" element={<TrashPage />} />
+            <Route path="/label" element={<LabelPage />} />
+            <Route path="/info" element={<InfoPage />} />
+
+            <Route path="/notes" element={<NotesPage />} />
+            <Route path="/archived" element={<ArchivePage />} />
+          </Route>
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
-          <Route path="/notes" element={<NotesPage />} />
-          <Route path="/archived" element={<ArchivePage />} />
         </Routes>
         {/* <Footer /> */}
       </div>
