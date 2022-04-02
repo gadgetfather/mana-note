@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/auth-context";
 import "./Navbar.css";
+
 export function Navbar() {
+  const token = localStorage.getItem("Mananote.Token");
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const handleMenu = () => {
     setIsOpen(!isOpen);
   };
   const { authDispatch } = useAuth();
-
-  const token = localStorage.getItem("Mananote.Token");
   const user = JSON.parse(localStorage.getItem("Mananote.User"));
   const handleLogout = () => {
     localStorage.removeItem("Mananote.Token");
@@ -18,12 +18,19 @@ export function Navbar() {
     authDispatch({ type: "SET_USER", payload: {} });
     navigate("/");
   };
+
   return (
     <>
       <nav className="navbar">
-        <Link className="link brand-name" to={"/"}>
-          <h1>ManaNote</h1>
-        </Link>
+        {token ? (
+          <Link className="link brand-name" to={"/notes"}>
+            <h1>ManaNote</h1>
+          </Link>
+        ) : (
+          <Link className="link brand-name" to={"/"}>
+            <h1>ManaNote</h1>
+          </Link>
+        )}
         <div className="nav-actions">
           {token ? (
             <p>Hello,{user.firstName}</p>
