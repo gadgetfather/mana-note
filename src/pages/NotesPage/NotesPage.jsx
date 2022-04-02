@@ -3,7 +3,6 @@ import "./NotesPage.css";
 import {
   AddNote,
   DesktopFilter,
-  EditNote,
   Filter,
   Note,
   OptionMenu,
@@ -21,16 +20,15 @@ export function NotesPage() {
     filter: { SortPriority, SortTime },
   } = useFilter();
 
-  const sortedArr = (data, SortPriority) => {
-    const tempData = [...data];
+  const sortedArr = (data, SortPriority, prioritesArr) => {
     if (SortPriority === "LOW_TO_HIGH") {
-      return tempData.sort(
-        (a, b) => priorites[a.priority] - priorites[b.priority]
+      return data.sort(
+        (a, b) => prioritesArr[a.priority] - prioritesArr[b.priority]
       );
     }
     if (SortPriority === "HIGH_TO_LOW") {
-      return tempData.sort(
-        (a, b) => priorites[b.priority] - priorites[a.priority]
+      return data.sort(
+        (a, b) => prioritesArr[b.priority] - prioritesArr[a.priority]
       );
     }
     return data;
@@ -43,11 +41,11 @@ export function NotesPage() {
     if (SortTime === "OLD_TO_NEW") {
       return tempData.sort((a, b) => Date.parse(a.date) - Date.parse(b.date));
     }
-    return data;
+    return tempData;
   };
 
-  const getSortedData = sortedArr(notes, SortPriority);
-  const getSortedDataTime = sortedByTime(getSortedData, SortTime);
+  const getSortedDataTime = sortedByTime(notes, SortTime);
+  const getSortedData = sortedArr(getSortedDataTime, SortPriority, priorites);
   return (
     <main className="main-content_notes">
       <div className="searchbar-container-desktop">
@@ -79,14 +77,14 @@ export function NotesPage() {
         <Sidebar />
         <div className="content-container-right">
           <h2 className="page-title">All Notes</h2>
-          <EditNote />
+
           {addNoteEnabled ? (
             <AddNote setAddNoteEnabled={setAddNoteEnabled} />
           ) : (
             ""
           )}
           <div className="notes-list">
-            {getSortedDataTime.map((item) => (
+            {getSortedData.map((item) => (
               <Note key={item._id} {...item} />
             ))}
           </div>
