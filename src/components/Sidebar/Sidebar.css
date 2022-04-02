@@ -1,5 +1,4 @@
 .sidebar {
-  /* background-color: red; */
   border-right: 1px solid gainsboro;
   display: none;
   flex-direction: column;
