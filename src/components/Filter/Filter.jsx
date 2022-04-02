@@ -11,7 +11,12 @@ export function Filter() {
     <div className="filter-container">
       <div className="filter-title-container">
         <h1>Sort</h1>
-        <button className="btn btn-secondary btn-clear">clear all</button>
+        <button
+          onClick={() => filterDispatch({ type: "RESET", payload: "RESET" })}
+          className="btn btn-secondary btn-clear"
+        >
+          clear all
+        </button>
       </div>
 
       <h2>By Time:</h2>
