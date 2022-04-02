@@ -30,13 +30,32 @@ const NoteProvider = ({ children }) => {
     const response = await axios.delete(`/api/notes/${id}`, {
       headers: { authorization: token },
     });
-    const {
-      data: { notes },
-    } = response;
-    setNotes(notes);
+  };
+
+  const editNote = async (id, noteText) => {
+    console.log(noteText);
+    try {
+      const response = await axios.post(
+        `/api/notes/${id}`,
+        { note: noteText },
+        {
+          headers: { authorization: token },
+        }
+      );
+      if (response.status === 201) {
+        const {
+          data: { notes },
+        } = response;
+        setNotes(notes);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
-    <NoteContext.Provider value={{ notes, setNotes, addNote, deleteNote }}>
+    <NoteContext.Provider
+      value={{ notes, setNotes, addNote, deleteNote, editNote }}
+    >
       {children}
     </NoteContext.Provider>
   );
