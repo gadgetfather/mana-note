@@ -71,6 +71,6 @@
   }
   .main-content_notes .notes-list {
     justify-content: flex-start;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 15rem));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 14rem));
   }
 }
