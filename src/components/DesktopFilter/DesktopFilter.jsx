@@ -11,7 +11,12 @@ export function DesktopFilter() {
     <div className="desktop-filter">
       <div className="filter-title-container">
         <h1>Sort</h1>
-        <button className="btn btn-secondary btn-clear">clear all</button>
+        <button
+          onClick={() => filterDispatch({ type: "RESET", payload: "RESET" })}
+          className="btn btn-secondary btn-clear"
+        >
+          clear all
+        </button>
       </div>
 
       <h2>By Time:</h2>
@@ -20,7 +25,7 @@ export function DesktopFilter() {
           <input
             checked={SortTime && SortTime === "NEW_TO_OLD"}
             onChange={() =>
-              filterDispatch({ type: "NEW_TO_OLD", payload: "NEW_TO_OLD" })
+              filterDispatch({ type: "SORT_BY_TIME", payload: "NEW_TO_OLD" })
             }
             name="byTime"
             id="newToOld"
@@ -32,7 +37,7 @@ export function DesktopFilter() {
           <input
             checked={SortTime && SortTime === "OLD_TO_NEW"}
             onChange={() =>
-              filterDispatch({ type: "OLD_TO_NEW", payload: "OLD_TO_NEW" })
+              filterDispatch({ type: "SORT_BY_TIME", payload: "OLD_TO_NEW" })
             }
             name="byTime"
             id="oldToNew"
@@ -47,7 +52,10 @@ export function DesktopFilter() {
           <input
             checked={SortPriority && SortPriority === "HIGH_TO_LOW"}
             onChange={() =>
-              filterDispatch({ type: "HIGH_TO_LOW", payload: "HIGH_TO_LOW" })
+              filterDispatch({
+                type: "SORT_BY_PRIORITY",
+                payload: "HIGH_TO_LOW",
+              })
             }
             name="byPriority"
             id="highToLow"
@@ -59,7 +67,10 @@ export function DesktopFilter() {
           <input
             checked={SortPriority && SortPriority == "LOW_TO_HIGH"}
             onChange={() =>
-              filterDispatch({ type: "LOW_TO_HIGH", payload: "LOW_TO_HIGH" })
+              filterDispatch({
+                type: "SORT_BY_PRIORITY",
+                payload: "LOW_TO_HIGH",
+              })
             }
             name="byPriority"
             id="lowToHigh"
