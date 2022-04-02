@@ -6,7 +6,19 @@ import { useTrash } from "../../context/trash-context";
 import "./Note.css";
 
 export function Note(props) {
-  const { text, title, time, _id, notebg, date, label, priority } = props;
+  const {
+    text,
+    title,
+    time,
+    _id,
+    notebg,
+    label,
+    priority,
+    setEditNoteEnable,
+    setAddNoteEnabled,
+    userData,
+    setUserData,
+  } = props;
   const { deleteNote } = useNote();
   const { trashArr, setTrashArr } = useTrash();
   const { addToArchive, archivesArr, restoreFromArchive, deleteFromArchive } =
@@ -27,7 +39,11 @@ export function Note(props) {
       return "low-priority";
     }
   };
-
+  const handleEdit = (data) => {
+    setEditNoteEnable(true);
+    setAddNoteEnabled(false);
+    setUserData(data);
+  };
   return (
     <div className={`note-container ${notebg} `}>
       <div className="note-text-area">
@@ -40,7 +56,6 @@ export function Note(props) {
       </div>
       <div className="note-footer">
         <div className="note-footer_left">
-          {/* <span>{date}</span> */}
           <span>{time}</span>
           {archivesArr.some((note) => note._id === _id) ? (
             <span
@@ -73,7 +88,10 @@ export function Note(props) {
               archive
             </span>
           )}
-          <span className="material-icons-outlined note-action-button">
+          <span
+            onClick={() => handleEdit(props)}
+            className="material-icons-outlined note-action-button"
+          >
             edit
           </span>
         </div>
