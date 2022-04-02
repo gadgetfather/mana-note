@@ -20,7 +20,7 @@ export function Filter() {
           <input
             checked={SortTime && SortTime === "NEW_TO_OLD"}
             onChange={() =>
-              filterDispatch({ type: "NEW_TO_OLD", payload: "NEW_TO_OLD" })
+              filterDispatch({ type: "SORT_BY_TIME", payload: "NEW_TO_OLD" })
             }
             name="byTime"
             id="newToOld"
@@ -32,7 +32,7 @@ export function Filter() {
           <input
             checked={SortTime && SortTime === "OLD_TO_NEW"}
             onChange={() =>
-              filterDispatch({ type: "OLD_TO_NEW", payload: "OLD_TO_NEW" })
+              filterDispatch({ type: "SORT_BY_TIME", payload: "OLD_TO_NEW" })
             }
             name="byTime"
             id="oldToNew"
@@ -47,7 +47,10 @@ export function Filter() {
           <input
             checked={SortPriority && SortPriority === "HIGH_TO_LOW"}
             onChange={() =>
-              filterDispatch({ type: "HIGH_TO_LOW", payload: "HIGH_TO_LOW" })
+              filterDispatch({
+                type: "SORT_BY_PRIORITY",
+                payload: "HIGH_TO_LOW",
+              })
             }
             name="byPriority"
             id="highToLow"
@@ -59,7 +62,10 @@ export function Filter() {
           <input
             checked={SortPriority && SortPriority == "LOW_TO_HIGH"}
             onChange={() =>
-              filterDispatch({ type: "LOW_TO_HIGH", payload: "LOW_TO_HIGH" })
+              filterDispatch({
+                type: "SORT_BY_PRIORITY",
+                payload: "LOW_TO_HIGH",
+              })
             }
             name="byPriority"
             id="lowToHigh"
