@@ -3,14 +3,13 @@ import React, { useContext, createContext, useReducer } from "react";
 const FilterContext = createContext();
 const filterReducer = (state, action) => {
   switch (action.type) {
-    case "LOW_TO_HIGH":
+    case "SORT_BY_PRIORITY":
       return { ...state, SortPriority: action.payload };
-    case "HIGH_TO_LOW":
-      return { ...state, SortPriority: action.payload };
-    case "NEW_TO_OLD":
+    case "SORT_BY_TIME":
       return { ...state, SortTime: action.payload };
-    case "OLD_TO_NEW":
-      return { ...state, SortTime: action.payload };
+
+    case "RESET":
+      return { SortTime: "", SortPriority: "" };
     default:
       break;
   }
