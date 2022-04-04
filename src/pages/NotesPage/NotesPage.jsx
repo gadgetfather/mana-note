@@ -66,7 +66,11 @@ export function NotesPage() {
       </div>
       {desktopfilterOpen ? <DesktopFilter /> : ""}
       <div className="searchbar-container-mobile">
-        <input className="note-searchbar-mobile" type="text" />
+        <input
+          placeholder="Search for a note..."
+          className="note-searchbar-mobile"
+          type="text"
+        />
         <span
           onClick={() => setFilterOpen(!filterOpen)}
           className="material-icons sort-icon"

@@ -30,6 +30,7 @@
   width: 24rem;
   padding: 0.4rem;
   border-radius: 0.5rem;
+  border: 1px solid var(--searchbar-border);
 }
 .sort-icon-desktop {
   font-size: 1.4rem;
@@ -45,6 +46,7 @@
   padding: 0.4rem;
   border-radius: 0.4rem;
   outline: none;
+  border: 1px solid var(--searchbar-border);
 }
 .searchbar-container-mobile .sort-icon {
   font-size: 2rem;
