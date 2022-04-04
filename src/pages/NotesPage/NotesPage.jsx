@@ -3,6 +3,7 @@ import "./NotesPage.css";
 import {
   AddNote,
   DesktopFilter,
+  EditNote,
   Filter,
   Note,
   OptionMenu,
@@ -16,10 +17,11 @@ export function NotesPage() {
   const [desktopfilterOpen, setDesktopFilterOpen] = useState(false);
   const { notes } = useNote();
   const [addNoteEnabled, setAddNoteEnabled] = useState(false);
+  const [editNoteEnable, setEditNoteEnable] = useState(false);
   const {
     filter: { SortPriority, SortTime },
   } = useFilter();
-
+  const [userData, setUserData] = useState({});
   const sortedArr = (data, SortPriority, prioritesArr) => {
     if (SortPriority === "LOW_TO_HIGH") {
       return data.sort(
@@ -77,7 +79,11 @@ export function NotesPage() {
         <Sidebar />
         <div className="content-container-right">
           <h2 className="page-title">All Notes</h2>
-
+          {editNoteEnable ? (
+            <EditNote setEditNoteEnable={setEditNoteEnable} {...userData} />
+          ) : (
+            ""
+          )}
           {addNoteEnabled ? (
             <AddNote setAddNoteEnabled={setAddNoteEnabled} />
           ) : (
@@ -85,14 +91,24 @@ export function NotesPage() {
           )}
           <div className="notes-list">
             {getSortedData.map((item) => (
-              <Note key={item._id} {...item} />
+              <Note
+                userData={userData}
+                setUserData={setUserData}
+                setEditNoteEnable={setEditNoteEnable}
+                setAddNoteEnabled={setAddNoteEnabled}
+                key={item._id}
+                {...item}
+              />
             ))}
           </div>
         </div>
       </div>
 
       <button
-        onClick={() => setAddNoteEnabled(true)}
+        onClick={() => {
+          setAddNoteEnabled(true);
+          setEditNoteEnable(false);
+        }}
         className="btn btn-floating note-floating-btn"
       >
         <span className="material-icons-outlined">add</span>
