@@ -2,7 +2,7 @@ import MockmanEs from "mockman-js";
 import React, { useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import "./App.css";
-import { Footer, Navbar } from "./components";
+import { Navbar } from "./components";
 import {
   LandingPage,
   LoginPage,
@@ -16,6 +16,16 @@ import {
 import { ProtectedRoute } from "./route/ProtectedRoute";
 
 function App() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const token = localStorage.getItem("Mananote.Token");
+    console.log(token);
+    if (token) {
+      navigate("/notes");
+    } else {
+      navigate("/");
+    }
+  }, []);
   return (
     <>
       <div className="main-container">

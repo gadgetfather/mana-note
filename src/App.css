@@ -3,14 +3,19 @@
   --note-bg-yellow: rgb(255, 255, 145);
   --note-bg-blue: rgb(160, 160, 252);
   --note-bg-green: rgb(163, 252, 163);
-  --default-note-bg: lightgray;
+  --default-note-bg: #dad0c2;
   /* --note-bg-color-container: #e5f3f0; */
+  --note-border: var(--primary-color);
   --note-bg-color-container: rgb(0, 0, 0);
   --info-container-bg: antiquewhite;
   --label-tag: antiquewhite;
   --priority-high: rgb(254, 123, 123);
   --priority-medium: rgb(255, 255, 127);
   --priority-low: rgb(120, 120, 255);
+  --searchbar-border: rgb(160, 160, 160);
+}
+body {
+  font-size: 18px;
 }
 .main-container {
   min-height: 100vh;
@@ -26,6 +31,7 @@
 .page-title {
   text-align: center;
   margin: 00.5rem;
+  font-size: 1.2rem;
 }
 .success-toast {
   /* display: none; */
@@ -40,6 +46,9 @@
   width: fit-content;
 }
 @media screen and (min-width: 1100px) {
+  body {
+    font-size: 16px;
+  }
   .main-container {
     width: 80%;
     margin: 0 auto;
