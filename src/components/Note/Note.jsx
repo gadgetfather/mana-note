@@ -19,7 +19,7 @@ export function Note(props) {
     userData,
     setUserData,
   } = props;
-  const { deleteNote } = useNote();
+  const [showActions, setShowAction] = useState(false);
   const { trashArr, setTrashArr } = useTrash();
   const { addToArchive, archivesArr, restoreFromArchive, deleteFromArchive } =
     useArchive();
@@ -45,7 +45,11 @@ export function Note(props) {
     setUserData(data);
   };
   return (
-    <div className={`note-container ${notebg} `}>
+    <div
+      onMouseEnter={() => setShowAction(true)}
+      onMouseLeave={() => setShowAction(false)}
+      className={`note-container ${notebg} `}
+    >
       <div className="note-text-area">
         <h1 className="note-title">{title}</h1>
         <ReactMarkdown className="note-text" children={text} />
@@ -55,8 +59,12 @@ export function Note(props) {
         <span className={`tag ${getPriorityBg(priority)}`}>{priority}</span>
       </div>
       <div className="note-footer">
-        <div className="note-footer_left">
-          <span>{time}</span>
+        <span className="note-footer_time">{time}</span>
+        <div
+          className={`note-footer_actions ${
+            showActions ? "actions-active" : ""
+          } `}
+        >
           {archivesArr.some((note) => note._id === _id) ? (
             <span
               onClick={() => deleteFromArchive(_id)}
