@@ -51,40 +51,8 @@ export function Navbar() {
               Login
             </Link>
           )}
-          <button onClick={handleMenu} className="btn main-menu">
-            {isOpen ? (
-              <span className="material-icons-outlined">close</span>
-            ) : (
-              <span className="material-icons-outlined">menu</span>
-            )}
-          </button>
         </div>
       </nav>
-      <div className={isOpen ? "mobile-nav is-opened" : "mobile-nav"}>
-        {token ? (
-          <>
-            <p className="btn btn-nav">
-              <span className="material-icons-outlined">logout</span>Logout
-            </p>
-            <Link
-              onClick={() => setIsOpen(false)}
-              to={"/login"}
-              className="btn btn-nav"
-            >
-              <span className="material-icons-outlined">archive</span>
-              Archived
-            </Link>
-          </>
-        ) : (
-          <Link
-            onClick={() => setIsOpen(false)}
-            to={"/login"}
-            className="btn btn-nav"
-          >
-            Login
-          </Link>
-        )}
-      </div>
     </>
   );
 }
