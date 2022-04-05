@@ -37,7 +37,9 @@
 
   transition: 0.2s ease;
 }
-
+.note-footer_actions .material-icons-outlined {
+  color: var(--note-icons-color);
+}
 .note-footer_actions span {
   border-radius: 50%;
   padding: 0.3rem;
@@ -72,7 +74,7 @@
   border-radius: 99999999px;
 }
 .label-tag {
-  background-color: antiquewhite;
+  background-color: var(--label-tag-bg);
 }
 .high-priority {
   background-color: var(--priority-high);
