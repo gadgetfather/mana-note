@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { useNote } from "../../context/note-context";
 import { useTrash } from "../../context/trash-context";
-
+import "./TrashNote.css";
 export function TrashNote(props) {
-  const { text, title, date, _id, notebg, label, priority } = props;
+  const { text, title, time, _id, notebg, label, priority } = props;
 
   const { trashArr, setTrashArr } = useTrash();
   const { notes, setNotes, deleteNote } = useNote();
@@ -36,9 +36,8 @@ export function TrashNote(props) {
         <span className={`tag ${getPriorityBg(priority)}`}>{priority}</span>
       </div>
       <div className="note-footer">
-        <div className="note-footer_left">
-          <span>{date}</span>
-
+        <span>{time}</span>
+        <div className="note-footer_trash-actions">
           <span
             onClick={() => moveToNote(_id, props)}
             className="material-icons-outlined note-action-button"
