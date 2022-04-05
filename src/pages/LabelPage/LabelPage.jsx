@@ -1,4 +1,3 @@
-import { act } from "@testing-library/react";
 import React, { useReducer, useState } from "react";
 import { Note, OptionMenu, Sidebar } from "../../components";
 

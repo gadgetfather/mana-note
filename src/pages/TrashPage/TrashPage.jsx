@@ -10,7 +10,11 @@ export function TrashPage() {
         <Sidebar />
         <div className="content-container-right">
           <h2 className="page-title">Trash</h2>
-
+          {trashArr.length > 0 ? (
+            ""
+          ) : (
+            <h3 className="page-title">Nothing in Trash...</h3>
+          )}
           <div className="notes-list">
             {trashArr.map((item) => (
               <TrashNote key={item._id} {...item} />
