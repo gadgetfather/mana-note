@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/auth-context";
+import { useTheme } from "../../context/theme-context";
 import "./Navbar.css";
 
 export function Navbar() {
+  const { theme, setTheme } = useTheme();
   const token = localStorage.getItem("Mananote.Token");
   const navigate = useNavigate();
-  const [isOpen, setIsOpen] = useState(false);
-  const handleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+
   const { authDispatch } = useAuth();
   const user = JSON.parse(localStorage.getItem("Mananote.User"));
   const handleLogout = () => {
@@ -18,7 +17,15 @@ export function Navbar() {
     authDispatch({ type: "SET_USER", payload: {} });
     navigate("/");
   };
-
+  const switchTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    if (newTheme === "dark") {
+      document.body.style.backgroundColor = "#222831";
+    } else {
+      document.body.style.backgroundColor = "#fff";
+    }
+    setTheme(newTheme);
+  };
   return (
     <>
       <nav className="navbar">
@@ -33,7 +40,7 @@ export function Navbar() {
         )}
         <div className="nav-actions">
           {token ? (
-            <p>Hello,{user.firstName}</p>
+            <p className="username">Hello,{user.firstName}</p>
           ) : (
             <Link to={"/signup"} className="btn btn-primary btn-action">
               Signup
@@ -42,7 +49,7 @@ export function Navbar() {
           {token ? (
             <span
               onClick={handleLogout}
-              className="material-icons-outlined logout-icon"
+              className="material-icons-outlined logout-icon icons"
             >
               logout
             </span>
@@ -50,6 +57,22 @@ export function Navbar() {
             <Link to={"/login"} className="btn btn-secondary btn-action login">
               Login
             </Link>
+          )}
+
+          {theme === "light" ? (
+            <span
+              onClick={switchTheme}
+              className="material-icons btn-theme icons"
+            >
+              light_mode
+            </span>
+          ) : (
+            <span
+              onClick={switchTheme}
+              className="material-icons btn-theme icons"
+            >
+              dark_mode
+            </span>
           )}
         </div>
       </nav>

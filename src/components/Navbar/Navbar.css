@@ -7,10 +7,13 @@
   position: sticky;
   top: 0;
   height: 3.4rem;
-  background-color: #fff;
+  background-color: var(--navbar-bg);
   border-bottom: 1px solid gainsboro;
   font-size: 1rem;
   margin-bottom: 5px;
+}
+.username {
+  color: var(--text-color);
 }
 .brand-name {
   margin: auto 0;
@@ -26,7 +29,9 @@
   align-items: center;
   gap: 0.5rem;
 }
-
+.btn-secondary {
+  color: var(--primary-color);
+}
 .btn.btn-primary.btn-action {
   font-size: 1rem;
   padding: 0.2rem 0.7rem;
@@ -48,13 +53,16 @@
   display: none;
   border-top: 1px solid gainsboro;
   z-index: 100;
-  background: #fff;
+  background: var(--navbar-bg);
   position: fixed;
   height: calc(100vh - 50px);
   width: 100%;
 }
 .is-opened {
   display: block;
+}
+.btn-theme {
+  cursor: pointer;
 }
 .btn.btn-nav {
   background: none;
