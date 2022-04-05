@@ -9,7 +9,7 @@
   position: relative;
 }
 .sidebar-item {
-  color: black;
+  color: var(--text-color);
   padding: 0.2rem 0.4rem;
   display: flex;
   align-items: center;

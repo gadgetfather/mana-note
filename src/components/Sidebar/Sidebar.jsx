@@ -43,7 +43,7 @@ export function Sidebar() {
         <span>Archive</span>
       </NavLink>
       <div
-        className={`info-container ${showInfo ? "info-container-show" : ""} `}
+        className={`info-container  ${showInfo ? "info-container-show" : ""} `}
       >
         <ul>
           <li>
@@ -75,7 +75,7 @@ export function Sidebar() {
       <div
         onMouseEnter={() => setShowInfo(true)}
         onMouseLeave={() => setShowInfo(false)}
-        className="info-icon"
+        className="info-icon icons"
       >
         <span class="material-icons-outlined">info</span>
       </div>
