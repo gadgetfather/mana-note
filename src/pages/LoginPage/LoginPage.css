@@ -9,6 +9,7 @@
   position: absolute;
   justify-self: center;
   margin-top: 0.5rem;
+  color: var(--text-color);
 }
 .input-label {
   align-self: flex-start;
