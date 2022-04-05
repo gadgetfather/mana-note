@@ -18,6 +18,7 @@
   margin-top: 1rem;
 }
 .details {
+  color: var(--text-color);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -35,7 +36,7 @@
   text-align: center;
 }
 .main-content_landing .link.btn-login {
-  color: black;
+  color: var(--text-color);
   cursor: pointer;
 }
 .main-content_landing .link.btn-login:hover {
