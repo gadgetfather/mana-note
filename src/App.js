@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import "./App.css";
 import { Navbar } from "./components";
+import { useTheme } from "./context/theme-context";
 import {
   LandingPage,
   LoginPage,
@@ -17,6 +18,7 @@ import { ProtectedRoute } from "./route/ProtectedRoute";
 
 function App() {
   const navigate = useNavigate();
+  const { theme, setTheme } = useTheme();
   useEffect(() => {
     const token = localStorage.getItem("Mananote.Token");
     console.log(token);
@@ -28,7 +30,7 @@ function App() {
   }, []);
   return (
     <>
-      <div className="main-container">
+      <div className={`main-container`} data-theme={theme}>
         <Navbar />
         <Routes>
           <Route path="/mock" element={<MockmanEs />} />
