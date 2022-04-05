@@ -5,6 +5,7 @@
 }
 .content-container {
   display: flex;
+  margin-top: 38px;
 }
 .content-container-right {
   display: block;
@@ -27,10 +28,15 @@
   top: 3.4rem;
 }
 .searchbar-container-desktop .note-searchbar-desktop {
+  background-color: var(--searchbar-background);
+  color: var(--text-color);
   width: 24rem;
   padding: 0.4rem;
   border-radius: 0.5rem;
   border: 1px solid var(--searchbar-border);
+}
+::placeholder {
+  color: var(--text-color);
 }
 .sort-icon-desktop {
   font-size: 1.4rem;

@@ -59,7 +59,7 @@ export function NotesPage() {
         />
         <span
           onClick={() => setDesktopFilterOpen(!desktopfilterOpen)}
-          className="material-icons sort-icon-desktop"
+          className="material-icons sort-icon-desktop icons"
         >
           filter_list
         </span>
@@ -73,7 +73,7 @@ export function NotesPage() {
         />
         <span
           onClick={() => setFilterOpen(!filterOpen)}
-          className="material-icons sort-icon"
+          className="material-icons sort-icon icons"
         >
           category
         </span>
