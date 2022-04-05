@@ -8,6 +8,9 @@
   position: relative;
   color: black;
 }
+.addnote-footer_actions .material-icons-outlined {
+  color: var(--note-icons-color);
+}
 .addnote-footer_actions {
   display: flex;
   align-items: center;
@@ -23,7 +26,9 @@
   background-color: #3d3d3d;
   color: #fff;
 }
-
+textarea::placeholder {
+  color: var(--textarea-placeholder);
+}
 ::placeholder {
   color: black;
 }
