@@ -5,10 +5,12 @@ const encodedToken = localStorage.getItem("Mananote.Token");
 const ArchiveContext = createContext();
 
 const ArchiveProvider = ({ children }) => {
+  let encodedToken;
   const [archivesArr, setArchivesArr] = useState([]);
   const { setNotes } = useNote();
 
   const addToArchive = async (noteid, note) => {
+    encodedToken = localStorage.getItem("Mananote.Token");
     try {
       const response = await axios.post(
         `/api/notes/archives/${noteid}`,
@@ -31,6 +33,8 @@ const ArchiveProvider = ({ children }) => {
   };
 
   const restoreFromArchive = async (noteid) => {
+    encodedToken = localStorage.getItem("Mananote.Token");
+
     try {
       const response = await axios.post(
         `/api/archives/restore/${noteid}`,
@@ -51,6 +55,8 @@ const ArchiveProvider = ({ children }) => {
     }
   };
   const deleteFromArchive = async (noteid) => {
+    encodedToken = localStorage.getItem("Mananote.Token");
+
     try {
       const response = await axios.delete(
         `/api/archives/delete/${noteid}`,

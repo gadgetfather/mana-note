@@ -1,14 +1,13 @@
 import react, { createContext, useContext, useState } from "react";
 import axios from "axios";
 
-const token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiIwNGU2MDc4ZC0yMzFhLTQ4ZWMtOGQxOC00MzFlNTM4YjAwOGYiLCJlbWFpbCI6ImFkYXJzaGJhbGlrYUBnbWFpbC5jb20ifQ.j-V957JHq7BvOUWUg0FfkfZTbmaTHnlEb0DCyvYsDnA";
-
 const NoteContext = createContext();
 
 const NoteProvider = ({ children }) => {
+  let token;
   const [notes, setNotes] = useState([]);
   const addNote = async (noteText) => {
+    token = localStorage.getItem("Mananote.Token");
     try {
       const response = await axios.post(
         "/api/notes",
@@ -20,20 +19,21 @@ const NoteProvider = ({ children }) => {
         data: { notes },
       } = response;
       setNotes(notes);
-      console.log("response", response);
     } catch (error) {
       console.log(error);
     }
   };
 
   const deleteNote = async (id) => {
+    token = localStorage.getItem("Mananote.Token");
     const response = await axios.delete(`/api/notes/${id}`, {
       headers: { authorization: token },
     });
   };
 
   const editNote = async (id, noteText) => {
-    console.log(noteText);
+    token = localStorage.getItem("Mananote.Token");
+
     try {
       const response = await axios.post(
         `/api/notes/${id}`,
