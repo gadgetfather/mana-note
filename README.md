@@ -1,70 +1,98 @@
-# Getting Started with Create React App
+<div align="center">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Mananote
 
-## Available Scripts
+</div>
 
-In the project directory, you can run:
+---
 
-### `yarn start`
+## 📕 Table of Contents
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [About](#-about)
+- [Features It has](#-features-it-has)
+- [Getting Started](#-getting-started)
+- [Connect with me](#-connect-with-me)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
 
-### `yarn test`
+## 📖 About
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Mananote is a Notes App created  with react and mockbee.
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🚀 Features It has
 
-### `yarn eject`
+From **Navbar**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- navigate to the Home page back, click on the logo
+- Log Out
+- Light Theme / Dark Theme Toggle
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+From **Home**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Join now by creating a account
+- Already a member log in
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+From **Notes** Page
 
-### Code Splitting
+- filter the Notes based on your preference. it gives filter options for
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+  - sort by Priority
+  - Sort by Latest to Old
+  - filter by Labels
+  
 
-### Analyzing the Bundle Size
+- add/remove Notes in (or from) your Archives or send/restore them in (or from) trash.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+From **Labels** page
 
-### Making a Progressive Web App
+- Sort your notes by the lables you have selected
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+From **Archives** page
 
-### Advanced Configuration
+- You can see your archived notes here
+- You can also unarchive them 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 🔌 Getting Started
 
-### `yarn build` fails to minify
+- clone the repository on your local machine with the command below in your terminal, and cd into the **mana-note** folder
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+git clone https://github.com/gadgetfather/mana-note.git
+
+cd mana-note
+```
+
+- install dependencies (if you are using **yarn** then do with that)
+
+```
+npm install
+```
+
+- create a `.env` file at the root level of the directory (at the level of `package.json`) and create a variable like mentioned below
+
+```
+REACT_APP_JWT_SECRET = <JWT_SECRET_KEY_OF_YOUR_CHOICE>
+```
+
+- start the server
+
+```
+npm start
+```
+
+---
+
+## 👨‍💻 Connect with me
+
+<a href="https://twitter.com/gadgetfather"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white"/></a>
+<a href="https://www.linkedin.com/in/gadgetfather/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
