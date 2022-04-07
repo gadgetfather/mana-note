@@ -1,16 +1,64 @@
 :root {
+  --text-color: #232222;
+  --background: #ffffff;
+  --navbar-bg: #ffffff;
+  --error-color: red;
+  --searchbar-background: #fff;
+  --textarea-placeholder: #000;
   --note-bg-red: rgb(255, 169, 169);
   --note-bg-yellow: rgb(255, 255, 145);
   --note-bg-blue: rgb(160, 160, 252);
   --note-bg-green: rgb(163, 252, 163);
-  --default-note-bg: lightgray;
+  --default-note-bg: #dad0c2;
+  --label-tag-bg: #ffa329;
   /* --note-bg-color-container: #e5f3f0; */
+  --note-border: var(--primary-color);
   --note-bg-color-container: rgb(0, 0, 0);
   --info-container-bg: antiquewhite;
   --label-tag: antiquewhite;
   --priority-high: rgb(254, 123, 123);
   --priority-medium: rgb(255, 255, 127);
   --priority-low: rgb(120, 120, 255);
+  --searchbar-border: rgb(160, 160, 160);
+}
+[data-theme="dark"] {
+  --primary-color: #f05454;
+  --primary-hover-color: #bd2121;
+  --secondary-color: #30475e;
+  --background: #222831;
+  --searchbar-background: #2e2e2e;
+  --textarea-placeholder: rgb(0, 0, 0);
+  --navbar-bg: #222831;
+  --text-color: #dddddd;
+  --text-secondary: grey;
+  --error-color: #ff9e9e;
+  --searchbar-border: rgb(77 77 77);
+  --note-icon-color: #000;
+  --default-note-bg: #bfa682;
+  --note-icons-color: #000;
+  --note-bg-red: #f47e7e;
+  --note-bg-green: #70d370;
+  --note-bg-blue: #7171d3;
+  --note-bg-yellow: #f5f570;
+
+  --accent: darkred;
+}
+
+body::-webkit-scrollbar {
+  width: 0.25rem;
+}
+body::-webkit-scrollbar-track {
+  background: var(--background);
+}
+body::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+}
+.icons {
+  color: var(--text-color);
+}
+body {
+  font-size: 18px;
+  background-color: var(--background);
 }
 .main-container {
   min-height: 100vh;
@@ -21,11 +69,13 @@
 }
 
 .error-text {
-  color: red;
+  color: var(--error-color);
 }
 .page-title {
   text-align: center;
   margin: 00.5rem;
+  font-size: 1.2rem;
+  color: var(--text-color);
 }
 .success-toast {
   /* display: none; */
@@ -40,6 +90,9 @@
   width: fit-content;
 }
 @media screen and (min-width: 1100px) {
+  body {
+    font-size: 16px;
+  }
   .main-container {
     width: 80%;
     margin: 0 auto;

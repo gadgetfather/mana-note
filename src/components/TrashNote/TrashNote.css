@@ -1,0 +1,10 @@
+.note-footer_trash-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.note-footer_trash-actions span {
+  color: var(--note-icon-color);
+  font-size: 1rem;
+}

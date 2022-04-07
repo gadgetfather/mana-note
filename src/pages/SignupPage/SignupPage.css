@@ -9,15 +9,19 @@
   position: absolute;
   justify-self: center;
   margin-top: 0.5rem;
+  color: var(--text-color);
 }
 .input-label {
   align-self: flex-start;
+  color: var(--text-color);
 }
 .input {
   padding: 0.3rem 0.8rem;
   border: none;
   border-bottom: 1px solid var(--primary-color);
   outline: none;
+  background: transparent;
+  color: var(--text-color);
 }
 .input:focus {
   border-bottom: 2px solid var(--primary-color);

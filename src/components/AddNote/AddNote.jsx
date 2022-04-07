@@ -3,8 +3,6 @@ import React, { useState } from "react";
 import { useNote } from "../../context/note-context";
 import "./AddNote.css";
 
-const token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiIwNGU2MDc4ZC0yMzFhLTQ4ZWMtOGQxOC00MzFlNTM4YjAwOGYiLCJlbWFpbCI6ImFkYXJzaGJhbGlrYUBnbWFpbC5jb20ifQ.j-V957JHq7BvOUWUg0FfkfZTbmaTHnlEb0DCyvYsDnA";
 export function AddNote(props) {
   const { setAddNoteEnabled } = props;
   const { notes, addNote, deleteNote } = useNote();
@@ -72,7 +70,7 @@ export function AddNote(props) {
         </select>
       </div>
       <div className="note-footer">
-        <div className="note-footer_left">
+        <div className="addnote-footer_actions">
           <span
             onClick={() => setAddNoteEnabled(false)}
             className="material-icons-outlined note-action-button"

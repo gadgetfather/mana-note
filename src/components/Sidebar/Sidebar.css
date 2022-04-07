@@ -9,12 +9,13 @@
   position: relative;
 }
 .sidebar-item {
-  color: black;
+  color: var(--text-color);
+  padding: 0.2rem 0.4rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   font-size: 1.2rem;
-  padding: 0.2rem;
+
   width: 7rem;
   border-radius: 0.5rem;
 }
@@ -72,5 +73,11 @@ code {
 @media screen and (min-width: 1000px) {
   .sidebar {
     display: flex;
+    width: 25%;
+  }
+}
+@media screen and (min-width: 1300px) {
+  .sidebar {
+    width: 20%;
   }
 }

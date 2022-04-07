@@ -3,10 +3,31 @@
   border: none;
   resize: none;
 }
+
 .add-note {
   position: relative;
   color: black;
-  border: 1px solid black;
+}
+.addnote-footer_actions .material-icons-outlined {
+  color: var(--note-icons-color);
+}
+.addnote-footer_actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  transition: 0.2s ease;
+}
+.addnote-footer_actions span {
+  border-radius: 50%;
+  padding: 0.3rem;
+}
+.addnote-footer_actions span:hover {
+  background-color: #3d3d3d;
+  color: #fff;
+}
+textarea::placeholder {
+  color: var(--textarea-placeholder);
 }
 ::placeholder {
   color: black;
@@ -62,14 +83,14 @@
 }
 .note-text.note-title {
   height: 3rem;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-family: inherit;
   overflow: hidden;
   padding: 0 0.2rem;
 }
 .note-text.text-area {
   margin-top: 0;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-family: inherit;
   padding: 0 0.2rem;
 }

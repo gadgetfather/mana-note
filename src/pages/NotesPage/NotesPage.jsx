@@ -59,17 +59,21 @@ export function NotesPage() {
         />
         <span
           onClick={() => setDesktopFilterOpen(!desktopfilterOpen)}
-          className="material-icons sort-icon-desktop"
+          className="material-icons sort-icon-desktop icons"
         >
           filter_list
         </span>
       </div>
       {desktopfilterOpen ? <DesktopFilter /> : ""}
       <div className="searchbar-container-mobile">
-        <input className="note-searchbar-mobile" type="text" />
+        <input
+          placeholder="Search for a note..."
+          className="note-searchbar-mobile"
+          type="text"
+        />
         <span
           onClick={() => setFilterOpen(!filterOpen)}
-          className="material-icons sort-icon"
+          className="material-icons sort-icon icons"
         >
           category
         </span>

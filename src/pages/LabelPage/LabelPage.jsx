@@ -1,6 +1,6 @@
-import { act } from "@testing-library/react";
 import React, { useReducer, useState } from "react";
 import { Note, OptionMenu, Sidebar } from "../../components";
+
 import { useNote } from "../../context/note-context";
 import "./LabelPage.css";
 
@@ -47,18 +47,6 @@ export function LabelPage() {
 
   return (
     <main className="main-content_notes">
-      <div className="searchbar-container-desktop">
-        <input
-          placeholder="Search for a note..."
-          className="note-searchbar-desktop"
-          type="text"
-        />
-        <span className="material-icons sort-icon-desktop">filter_list</span>
-      </div>
-      <div className="searchbar-container-mobile">
-        <input className="note-searchbar-mobile" type="text" />
-        <span className="material-icons sort-icon">category</span>
-      </div>
       <div className="content-container">
         <Sidebar />
         <div className="content-container-right">
@@ -122,12 +110,7 @@ export function LabelPage() {
           </div>
         </div>
       </div>
-      <button
-        // onClick={handleAddNote}
-        className="btn btn-floating note-floating-btn"
-      >
-        <span className="material-icons-outlined">add</span>
-      </button>
+
       <OptionMenu />
     </main>
   );
