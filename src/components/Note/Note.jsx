@@ -26,7 +26,7 @@ export function Note(props) {
   const { notes, setNotes } = useNote();
 
   const moveToTrash = (id, props) => {
-    setTrashArr([props]);
+    setTrashArr([...trashArr,props]);
     setNotes(notes.filter((note) => note._id !== id));
   };
 
